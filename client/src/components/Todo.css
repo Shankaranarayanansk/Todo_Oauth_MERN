@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  width: 100%;
+}
+
+.login-box {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-box h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.login-button {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 20px;
+  border: solid 1px black;
+  border-radius: 10px;
+  
+}
+.welcome-message {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+.login-button:hover {
+  background-color: #97ff9c;
+  color: #000000;
+}
+.logout{
+  background-color: #36d8f4;
+  color: white;
+  width: 100px;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  position: sticky;
+  top: 0;
+}
+.logout:hover
+{
+   background-color: #d30000;
+}
+form{
+  position: sticky;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  flex-direction: row;
+  position: sticky;
+}
+
+.image-container {
+  flex: 0 0 auto;
+  margin-right: 20px;
+  margin-top: 180px;
+}
+
+.image-container img {
+  max-width: 700px;
+  height: 600px;
+  width: 100%;
+  height: auto;
+}
+
+.main-content {
+  flex: 1 1 auto;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+h3 {
+  color: #555;
+  margin-top: 30px;
+}
+
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #ffffff;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+li div {
+  display: flex;
+  gap: 10px;
+}
+
+li button {
+  padding: 5px 10px;
+  font-size: 0.9em;
+}
+
+li button:first-child {
+  background-color: #dc3545;
+}
+
+li button:first-child:hover {
+  background-color: #c82333;
+}
+
+li button:last-child {
+  background-color: #28a745;
+}
+
+li button:last-child:hover {
+  background-color: #218838;
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.ReactModal__Content {
+  max-width: 400px;
+  max-height: fit-content;
+  margin: auto;
+  padding: 20px;
+  border-radius: 20px;
+  border-color: #000000;
+  text-align: center;
+}
+
+.ReactModal__Content .button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.ReactModal__Content button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  flex: 1;
+  max-width: 120px;
+}
+
+.ReactModal__Content button:hover {
+  background-color: #d30000;
+}
+
+.task-table {
+  margin-top: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.task-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  background-color: #e9ecef;
+  font-weight: bold;
+  padding: 10px 15px;
+}
+
+.task-header span {
+  padding: 0 10px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  align-items: center;
+  padding: 15px;
+  border-top: 1px solid #ced4da;
+}
+
+li span {
+  padding: 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+li div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+li:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+li:hover {
+  background-color: #f1f3f5;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-container {
+    margin: 0 auto;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .App {
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  button {
+    padding: 10px;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  li div {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .ReactModal__Content {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .image-container {
+    margin-top: 100px;
+  }
+
+  .App {
+    margin-top: 10px;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  li {
+    padding: 10px;
+  }
+
+  li span {
+    font-size: 0.9em;
+  }
+
+  button {
+    padding: 8px;
+  }
+
+  .ReactModal__Content button {
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 5px;
+  }
+
+  .image-container {
+    margin-top: 50px;
+  }
+
+  .App {
+    margin-top: 5px;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1em;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  li {
+    padding: 8px;
+  }
+
+  li span {
+    font-size: 0.8em;
+  }
+
+  button {
+    padding: 6px;
+  }
+
+  .ReactModal__Content {
+    padding: 10px;
+  }
+
+  .ReactModal__Content button {
+    padding: 6px 12px;
+  }
+}
