@@ -6,7 +6,7 @@ import img from '../assets/img.png';
 import { FcGoogle } from "react-icons/fc";
 
 // Hardcoded API URL - replace with your actual API URL
-const apiUrl = "http://localhost:9000";
+const apiUrl = "https://todo-oauth-mern-shankaranarayanansk.onrender.com/";
 
 const Todo = () => {
   const [title, setTitle] = useState('');
