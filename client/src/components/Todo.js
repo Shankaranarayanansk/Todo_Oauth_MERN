@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import './Todo.css';
 import { Toaster, toast } from 'sonner';
 import Modal from 'react-modal';
@@ -22,32 +22,7 @@ const Todo = () => {
   const [logoutModalIsOpen, setLogoutModalIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const tokenFromUrl = urlParams.get('token');
-    if (tokenFromUrl) {
-      setToken(tokenFromUrl);
-      localStorage.setItem('token', tokenFromUrl);
-      window.history.replaceState({}, document.title, "/");
-    } else {
-      const storedToken = localStorage.getItem('token');
-      if (storedToken) {
-        setToken(storedToken);
-      }
-    }
-    setIsLoading(false);
-  }, []);
-
-  useEffect(() => {
-    if (token) {
-      console.log('Token exists, fetching items');
-      getItems();
-    } else {
-      console.log('No token found');
-    }
-  }, [token]);
-
-  const getItems = () => {
+  const getItems = useCallback(() => {
     if (!token) {
       toast.error("No token found. Please log in.");
       return;
@@ -88,7 +63,32 @@ const Todo = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  };
+  }, [token]);
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tokenFromUrl = urlParams.get('token');
+    if (tokenFromUrl) {
+      setToken(tokenFromUrl);
+      localStorage.setItem('token', tokenFromUrl);
+      window.history.replaceState({}, document.title, "/");
+    } else {
+      const storedToken = localStorage.getItem('token');
+      if (storedToken) {
+        setToken(storedToken);
+      }
+    }
+    setIsLoading(false);
+  }, []);
+
+  useEffect(() => {
+    if (token) {
+      console.log('Token exists, fetching items');
+      getItems();
+    } else {
+      console.log('No token found');
+    }
+  }, [token, getItems]);
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent default form submission
@@ -140,6 +140,7 @@ const Todo = () => {
       toast.error("All fields are required");
     }
   };
+
   const handleDelete = (id) => {
     fetch(`${apiUrl}/todos/${id}`, {
       method: "DELETE",
@@ -287,11 +288,8 @@ const Todo = () => {
         ariaHideApp={false}
       >
         <h2>Confirm Delete</h2>
-        <p>Are you sure you want to delete this task?</p>
-        <div className="button-container">
-          <button onClick={() => handleDelete(itemToDelete)}>Yes</button>
-          <button onClick={closeModal} className='no'>No</button>
-        </div>
+        <button onClick={() => handleDelete(itemToDelete)}>Yes, Delete</button>
+        <button onClick={closeModal}>Cancel</button>
       </Modal>
       <Modal
         isOpen={logoutModalIsOpen}
@@ -299,14 +297,11 @@ const Todo = () => {
         contentLabel="Logout Confirmation"
         ariaHideApp={false}
       >
-        <h2>Confirm Logout</h2>
-        <p>Are you sure you want to logout?</p>
-        <div className="button-container">
-          <button onClick={confirmLogout}>Yes</button>
-          <button onClick={cancelLogout} className='no'>No</button>
-        </div>
+        <h2>Are you sure you want to logout?</h2>
+        <button onClick={confirmLogout}>Yes, Logout</button>
+        <button onClick={cancelLogout}>Cancel</button>
       </Modal>
-      <Toaster position="top-right" richColors />
+      <Toaster position="bottom-right" />
     </div>
   );
 };
