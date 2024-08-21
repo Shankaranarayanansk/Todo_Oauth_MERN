@@ -15,7 +15,7 @@ const app = express();
 
 // CORS configuration
 const corsOptions = {
-  origin: "http://localhost:5173", // Your client's URL
+  origin: "https://todo-oauth-mern-shankaranarayanansk.onrender.com", // Your client's URL
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
